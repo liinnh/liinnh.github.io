@@ -4,41 +4,21 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">  
+    <link rel="stylesheet" href="styles.css">
     <title>Cocktail Explorer</title>  
 </head>
-
-<style>
-    body {
-        font-family: -apple-system-font, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
-        font-weight: 400;
-    }
-
-    .center {
-        text-align: center;
-    }
-
-    #wrapper {
-        position: absolute;
-        left: 50%;
-        margin-left: -35%;
- 	    width: 70%;
-    }
-
-</style>
 
 <body>
     <div id="wrapper">
         <h1 class="center">Cocktail Network Explorer</h1>
 
         <p>Welcome to the Cocktail Network Explorer! This interactive visualization is for anyone who wants to try a new
-            cocktail! Whether you are an experienced mixologist or someone just looking to order something new at a bar,
-            I hope you find the tool useful for drink discovery. You can use it to explore totally unique cocktails or new
-            drinks similar to ones you like.</p>
+            cocktail! Whether you are an experienced mixologist or just looking to order something new at a bar,
+            this tool should be useful for discovering new drinks similar to ones you like.</p>
 
         <p><b>How To Use</b>: Each circle or "node" represents a cocktail in the database. Similar cocktails are
-            connected by a line. <b>Click</b> on a node to highlight its connections and <b>double click</b> a node to view its
-            recipe. Use the dropdown list to search for a specific cocktail. Navigate by scrolling to zoom in and out and dragging
-            to pan around.</p>
+            connected by a line. <b>Click</b> on a node to highlight its connections and <b>double click</b> to view its
+            recipe. Use the dropdown list to find a specific cocktail.</p>
 
             <iframe width="100%" height="692" frameborder="0"
             src="https://observablehq.com/embed/@liinnh/cocktails-network?cells=chart%2Clegend%2Cfilter"></iframe>
@@ -55,8 +35,8 @@
         <p>A: All the unique ingredients that appear in the cocktails were grouped into more general categories. For
             example, the Vodka category includes Vodka, Absolut Vodka, Raspberry Vodka, Vanilla Vodka, and Peach Vodka. Then, the
             data was one-hot encoded to create dummy variables that indicate whether or not each drink contains each of the
-            general ingredient groups. Using these binary variables, cosine similarity between every possible
-            pairing of drinks was computed. If 2 drinks contain similar enough ingredients (similarity greater than our threshold
+            general ingredient groups. Then, the cosine similarity between every possible
+            pairing of drinks was computed. If 2 drinks contain similar enough ingredients (similarity greater than a certain threshold
             value), they are linked to one another.</p>
 
         <p>Q: How come the color or category of some drinks aren't what I would expect?</p>

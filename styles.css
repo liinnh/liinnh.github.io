@@ -1,0 +1,30 @@
+body {
+    font-family: -apple-system-font, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    font-weight: 400;
+}
+
+.center {
+    text-align: center;
+}
+
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 40%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
+#wrapper {
+    position: absolute;
+    left: 50%;
+    margin-left: -35%;
+     width: 70%;
+}
+
+#narrow-wrapper {
+    position: absolute;
+    left: 50%;
+    margin-left: -25%;
+     width: 50%;
+}
