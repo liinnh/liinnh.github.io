@@ -1,0 +1,202 @@
+---
+// No props needed for now
+const starCount = 100;
+const stars = Array.from({ length: starCount }, (_, i) => ({
+  id: i,
+  top: Math.random() * 80 + '%', // keep stars above the ground
+  left: Math.random() * 100 + '%',
+  size: Math.random() * 2 + 1, // 1px to 3px
+  opacity: Math.random() * 0.5 + 0.5, // 0.5 to 1
+}));
+---
+
+<div class="nature-art">
+  <div class="sky">
+  <div class="stars">
+    {stars.map(star => (
+      <div
+        class="star"
+        style={`top:${star.top};left:${star.left};width:${star.size}px;height:${star.size}px;opacity:${star.opacity}`}
+        key={star.id}
+      />
+    ))}
+  </div>
+    <div class="sun-moon"></div>
+    <svg class="mountain-range-back2" viewBox="0 0 700 200" preserveAspectRatio="none">
+      <path d="M0,30 Q120,0 260,50 Q400,100 520,110 Q600,120 700,150 L700,200 L0,200 Z" fill="#d3d0db" />
+    </svg>
+    <svg class="mountain-range-back1" viewBox="0 0 700 160" preserveAspectRatio="none">
+      <path d="M700,40 Q600,10 500,60 Q400,120 300,100 Q200,80 100,120 Q80,130 0,160 L700,160 Z" fill="#a49bb3" />
+    </svg>
+    <svg class="mountain-range" viewBox="0 0 700 120" preserveAspectRatio="none">
+      <path d="M0,10 Q60,0 120,40 Q200,100 320,60 Q400,40 500,70 Q600,90 700,80 L700,120 L0,120 Z" fill="#6d5a7c"/>
+    </svg>
+  </div>
+  <div class="ground"></div>
+</div>
+
+<style>
+  .nature-art {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 1rem;
+    margin: 2rem 0;
+  }
+
+  .sky {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #1a365d 0%, #2d3748 100%);
+    transition: background 0.5s ease;
+    z-index: 1;
+  }
+
+  .sun-moon {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: #ffffff;
+    border-radius: 50%;
+    top: 40px;
+    right: 60px;
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.8);
+    animation: float 6s ease-in-out infinite;
+    z-index: 2;
+  }
+
+  .stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .star {
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    animation: twinkle 4s ease-in-out infinite;
+  }
+
+  .ground {
+    position: absolute;
+    width: 100%;
+    top: 80%;
+    height: 20%;
+    background: #1a202c;
+    z-index: 4;
+    overflow: visible;
+  }
+
+  .forest {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    pointer-events: none;
+  }
+  .tree {
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 5;
+  }
+  .trunk {
+    position: absolute;
+    background: #5b3a1b;
+    border-radius: 1px;
+  }
+  .canopy-triangle {
+    position: absolute;
+    width: 0;
+    height: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes twinkle {
+    0%, 100% {
+      opacity: 0.8;
+    }
+    50% {
+      opacity: 0.4;
+    }
+  }
+
+  /* Dark mode styles */
+  :global(.dark) .sky {
+    background: linear-gradient(to bottom, #1a365d 0%, #2d3748 100%);
+  }
+  :global(.dark) .ground {
+    background: #171923;
+  }
+  /* Light mode styles */
+  :global(.light) .sky {
+    background: linear-gradient(to bottom, #4299e1 0%, #63b3ed 100%);
+  }
+  :global(.light) .sun-moon {
+    background: #f6e05e;
+    box-shadow: 0 0 40px #f6e05e;
+  }
+  :global(.light) .ground {
+    background: #2d3748;
+  }
+  /* Responsive adjustments */
+  @media (max-width: 640px) {
+    .nature-art {
+      height: 200px;
+    }
+    .sun-moon {
+      width: 40px;
+      height: 40px;
+      top: 20px;
+      right: 40px;
+    }
+  }
+
+  .mountain-range {
+    position: absolute;
+    left: 0;
+    bottom: 20%;
+    width: 100%;
+    height: 120px;
+    z-index: 3;
+    pointer-events: none;
+  }
+
+  .mountain-range-back2 {
+    position: absolute;
+    left: 0;
+    bottom: 20%;
+    width: 100%;
+    height: 160px;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .mountain-range-back1 {
+    position: absolute;
+    left: 0;
+    bottom: 20%;
+    width: 100%;
+    height: 160px;
+    z-index: 2;
+    pointer-events: none;
+  }
+</style> 
