@@ -1,17 +1,45 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import NatureArt from '../components/NatureArt.astro';
+import Layout from "../layouts/Layout.astro";
+import NatureArt from "../components/NatureArt.astro";
 ---
 
-<Layout title="Welcome to My Personal Site">
-	<div class="max-w-4xl mx-auto">
-		<h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-8">
-			Welcome to My Personal Site
-		</h1>
-		<p class="text-lg text-gray-700 dark:text-gray-300 mb-8">
-			This is my personal website built with Astro and Tailwind CSS.
-		</p>
-		
-		<NatureArt />
-	</div>
+<Layout title="Linh Nguyen">
+  <div class="max-w-4xl mx-auto">
+    <NatureArt />
+
+    <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-8">
+      hi! i'm linh
+    </h1>
+    <p class="text-m text-gray-700 dark:text-gray-300 mb-8">
+      I'm based in San Francisco, CA and I love:
+      <ul class="text-m text-gray-700 dark:text-gray-300 mb-8">
+        <li>- data</li>
+        <li>
+          - <a href="https://www.strava.com/athletes/44108651" target="_blank"
+            >going outside</a
+          >
+        </li>
+        <li>
+          - <a href="https://www.last.fm/user/nguyen-linh" target="_blank"
+            >listening to</a
+          > & <a href="/music">arranging music</a>
+        </li>
+      </ul>
+    </p>
+
+    <p class="text-m text-gray-700 dark:text-gray-300 mb-8">
+      I'm a data scientist, etc etc.
+    </p>
+
+    <p class="text-m text-gray-700 dark:text-gray-300 mb-8">
+      In a past life, I studied at MIT where I majored in Chemical Engineering
+      and minored in Music. I also played some <a
+        href="https://poker.mit.edu/"
+        target="_blank">poker</a
+      > and lots of <a
+        href="https://www.sporcle.com/user/liinnh/"
+        target="_blank">Sporcle</a
+      >.
+    </p>
+  </div>
 </Layout>

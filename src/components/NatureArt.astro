@@ -3,8 +3,8 @@
 const starCount = 100;
 const stars = Array.from({ length: starCount }, (_, i) => ({
   id: i,
-  top: Math.random() * 80 + '%', // keep stars above the ground
-  left: Math.random() * 100 + '%',
+  top: Math.random() * 80 + "%", // keep stars above the ground
+  left: Math.random() * 100 + "%",
   size: Math.random() * 2 + 1, // 1px to 3px
   opacity: Math.random() * 0.5 + 0.5, // 0.5 to 1
 }));
@@ -12,24 +12,43 @@ const stars = Array.from({ length: starCount }, (_, i) => ({
 
 <div class="nature-art">
   <div class="sky">
-  <div class="stars">
-    {stars.map(star => (
-      <div
-        class="star"
-        style={`top:${star.top};left:${star.left};width:${star.size}px;height:${star.size}px;opacity:${star.opacity}`}
-        key={star.id}
-      />
-    ))}
-  </div>
+    <div class="stars">
+      {
+        stars.map((star) => (
+          <div
+            class="star"
+            style={`top:${star.top};left:${star.left};width:${star.size}px;height:${star.size}px;opacity:${star.opacity}`}
+          />
+        ))
+      }
+    </div>
     <div class="sun-moon"></div>
-    <svg class="mountain-range-back2" viewBox="0 0 700 200" preserveAspectRatio="none">
-      <path d="M0,30 Q120,0 260,50 Q400,100 520,110 Q600,120 700,150 L700,200 L0,200 Z" fill="#b9acc3" />
+    <svg
+      class="mountain-range-back2"
+      viewBox="0 0 700 200"
+      preserveAspectRatio="none"
+    >
+      <path
+        d="M0,30 Q120,0 260,50 Q400,100 520,110 Q600,120 700,150 L700,200 L0,200 Z"
+        fill="#b9acc3"></path>
     </svg>
-    <svg class="mountain-range-back1" viewBox="0 0 700 160" preserveAspectRatio="none">
-      <path d="M700,40 Q600,10 500,60 Q400,120 300,100 Q200,80 100,120 Q80,130 0,160 L700,160 Z" fill="#9380a3" />
+    <svg
+      class="mountain-range-back1"
+      viewBox="0 0 700 160"
+      preserveAspectRatio="none"
+    >
+      <path
+        d="M700,40 Q600,10 500,60 Q400,120 300,100 Q200,80 100,120 Q80,130 0,160 L700,160 Z"
+        fill="#9380a3"></path>
     </svg>
-    <svg class="mountain-range" viewBox="0 0 700 120" preserveAspectRatio="none">
-      <path d="M0,10 Q60,0 120,40 Q200,100 320,60 Q400,40 500,70 Q600,90 700,80 L700,120 L0,120 Z" fill="#6d5a7c"/>
+    <svg
+      class="mountain-range"
+      viewBox="0 0 700 120"
+      preserveAspectRatio="none"
+    >
+      <path
+        d="M0,10 Q60,0 120,40 Q200,100 320,60 Q400,40 500,70 Q600,90 700,80 L700,120 L0,120 Z"
+        fill="#6d5a7c"></path>
     </svg>
   </div>
   <div class="ground"></div>
@@ -43,6 +62,7 @@ const stars = Array.from({ length: starCount }, (_, i) => ({
     overflow: hidden;
     border-radius: 1rem;
     margin: 2rem 0;
+    background: #1a365d;
   }
 
   .sky {
@@ -53,17 +73,23 @@ const stars = Array.from({ length: starCount }, (_, i) => ({
     transition: background 0.7s;
     z-index: 1;
     overflow: hidden;
+    border-radius: 1rem;
   }
 
   .sky::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     pointer-events: none;
-    background: linear-gradient(to bottom, rgb(158, 132, 218) 0%, rgb(242, 174, 142) 40%, rgb(251, 152, 119) 100%);
+    background: linear-gradient(
+      to bottom,
+      rgb(158, 132, 218) 0%,
+      rgb(242, 174, 142) 40%,
+      rgb(251, 152, 119) 100%
+    );
     opacity: 0;
     transition: opacity 0.7s;
     z-index: 0;
@@ -108,36 +134,9 @@ const stars = Array.from({ length: starCount }, (_, i) => ({
     overflow: visible;
   }
 
-  .forest {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    bottom: 0;
-    pointer-events: none;
-  }
-  .tree {
-    position: absolute;
-    top: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 5;
-  }
-  .trunk {
-    position: absolute;
-    background: #5b3a1b;
-    border-radius: 1px;
-  }
-  .canopy-triangle {
-    position: absolute;
-    width: 0;
-    height: 0;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
-  }
-
   @keyframes float {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(0);
     }
     50% {
@@ -146,7 +145,8 @@ const stars = Array.from({ length: starCount }, (_, i) => ({
   }
 
   @keyframes twinkle {
-    0%, 100% {
+    0%,
+    100% {
       opacity: 0.8;
     }
     50% {
@@ -163,17 +163,22 @@ const stars = Array.from({ length: starCount }, (_, i) => ({
   }
   /* Light mode styles */
   :global(.light) .sky {
-    background: linear-gradient(to bottom,rgb(158, 132, 218) 0%,rgb(242, 174, 142) 40%,rgb(251, 152, 119) 100%);
+    background: linear-gradient(
+      to bottom,
+      rgb(158, 132, 218) 0%,
+      rgb(242, 174, 142) 40%,
+      rgb(251, 152, 119) 100%
+    );
   }
   :global(.light) .sun-moon {
     background: #f6e05e;
     box-shadow: 0 0 40px #f6e05e;
   }
   :global(.light) .ground {
-    background: #234d20;
+    background: #112034;
   }
   :global(.light) .mountain-range-back2 path {
-    fill:rgb(80, 130, 183);
+    fill: rgb(80, 130, 183);
   }
   :global(.light) .mountain-range-back1 path {
     fill: #38618c;
@@ -195,6 +200,11 @@ const stars = Array.from({ length: starCount }, (_, i) => ({
       top: 20px;
       right: 40px;
     }
+    .mountain-range,
+    .mountain-range-back1,
+    .mountain-range-back2 {
+      bottom: 20%;
+    }
   }
 
   .mountain-range {
@@ -202,7 +212,7 @@ const stars = Array.from({ length: starCount }, (_, i) => ({
     left: 0;
     bottom: 20%;
     width: 100%;
-    height: 120px;
+    height: 40%;
     z-index: 3;
     pointer-events: none;
   }
@@ -212,7 +222,7 @@ const stars = Array.from({ length: starCount }, (_, i) => ({
     left: 0;
     bottom: 20%;
     width: 100%;
-    height: 160px;
+    height: 50%;
     z-index: 1;
     pointer-events: none;
   }
@@ -222,16 +232,20 @@ const stars = Array.from({ length: starCount }, (_, i) => ({
     left: 0;
     bottom: 20%;
     width: 100%;
-    height: 160px;
+    height: 50%;
     z-index: 2;
     pointer-events: none;
   }
 
-  .sky, .ground,
+  .sky,
+  .ground,
   .mountain-range-back2 path,
   .mountain-range-back1 path,
-  .mountain-range path,
-  .mountain-range-front path {
-    transition: background 0.7s, fill 0.7s;
+  .mountain-range path {
+    transition:
+      background 0.7s,
+      fill 0.7s,
+      box-shadow 0.7s,
+      color 0.7s;
   }
-</style> 
+</style>
