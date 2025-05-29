@@ -4,6 +4,19 @@
 :root {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color-scheme: light dark;
+}
+
+html {
+  color-scheme: light dark;
+}
+
+html.light {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
 }
 
 body {
@@ -11,14 +24,50 @@ body {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #e2e8f0;
+  color: #475569;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+html.dark body {
+  background-color: #111827;
+  color: #f3f4f6;
+}
+
+/* Base text colors */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+div,
+li {
+  color: #475569;
+  transition: color 0.5s ease;
+}
+
+html.dark p,
+html.dark h1,
+html.dark h2,
+html.dark h3,
+html.dark h4,
+html.dark h5,
+html.dark h6,
+html.dark span,
+html.dark div,
+html.dark li {
+  color: #f3f4f6;
 }
 
 /* Link styles */
 a {
-  color: #64748b;
+  color: #334155;
   text-decoration: none;
   position: relative;
-  transition: color 0.2s ease;
+  transition: color 0.5s ease;
 }
 
 a::after {
@@ -29,25 +78,23 @@ a::after {
   bottom: -2px;
   left: 0;
   background-color: currentColor;
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 0.3s ease;
+  opacity: 0.5;
+  transition: opacity 0.5s ease;
 }
 
 a:hover {
-  color: #475569;
+  color: #1e293b;
 }
 
 a:hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
+  opacity: 1;
 }
 
 /* Dark mode link styles */
 :global(.dark) a {
-  color: #94a3b8;
+  color: #f8fafc;
 }
 
 :global(.dark) a:hover {
-  color: #cbd5e1;
+  color: #ffffff;
 }
