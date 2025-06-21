@@ -64,7 +64,7 @@ html.dark li {
 
 /* Link styles */
 a {
-  color: #334155;
+  color: #808ea3;
   text-decoration: none;
   position: relative;
   transition: color 0.5s ease;
@@ -83,7 +83,7 @@ a::after {
 }
 
 a:hover {
-  color: #1e293b;
+  color: #475569;
 }
 
 a:hover::after {
@@ -92,9 +92,9 @@ a:hover::after {
 
 /* Dark mode link styles */
 :global(.dark) a {
-  color: #f8fafc;
+  color: #e2e8f0;
 }
 
 :global(.dark) a:hover {
-  color: #ffffff;
+  color: #f8fafc;
 }

@@ -9,9 +9,7 @@ import Layout from "../layouts/Layout.astro";
     </h1>
     <div class="space-y-6">
       <!-- Project Card 1 -->
-      <div
-        class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow"
-      >
+      <div class="project-card">
         <div class="flex justify-between items-start">
           <div>
             <h2 class="text-2xl font-bold mb-2 text-gray-900 dark:text-white">
@@ -19,21 +17,22 @@ import Layout from "../layouts/Layout.astro";
             </h2>
             <p class="text-gray-700 dark:text-gray-300 mb-4">
               A sleep leaderboard that connects to Whoop, Fitbit, Pixel Watch,
-              and Garmin. This app is a combination of all my core values:
-              friendship, health, and memes. (Please reach out if you have any
-              interest in contributing to this project!)
+              and Garmin. This social media app is a combination of all my core
+              values: friendship, health, and memes.<br /><br />
+              WIP - Please reach out if you have any interest in contributing to
+              this project!
             </p>
           </div>
-          <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline"
+          <a
+            href="#"
+            class="text-blue-600 dark:text-blue-400 hover:underline whitespace-nowrap flex-shrink-0"
             >View →</a
           >
         </div>
       </div>
 
       <!-- Project Card 2 -->
-      <div
-        class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow"
-      >
+      <div class="project-card">
         <div class="flex justify-between items-start">
           <div>
             <h2 class="text-2xl font-bold mb-2 text-gray-900 dark:text-white">
@@ -45,15 +44,14 @@ import Layout from "../layouts/Layout.astro";
           </div>
           <a
             href="https://wikilang-liinnh.pythonanywhere.com/"
-            class="text-blue-600 dark:text-blue-400 hover:underline">View →</a
+            class="text-blue-600 dark:text-blue-400 hover:underline whitespace-nowrap flex-shrink-0"
+            >View →</a
           >
         </div>
       </div>
 
       <!-- Project Card 3 -->
-      <div
-        class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow"
-      >
+      <div class="project-card">
         <div class="flex justify-between items-start">
           <div>
             <h2 class="text-2xl font-bold mb-2 text-gray-900 dark:text-white">
@@ -66,10 +64,35 @@ import Layout from "../layouts/Layout.astro";
           </div>
           <a
             href="https://observablehq.com/@liinnh/cocktails-network"
-            class="text-blue-600 dark:text-blue-400 hover:underline">View →</a
+            class="text-blue-600 dark:text-blue-400 hover:underline whitespace-nowrap flex-shrink-0"
+            >View →</a
           >
         </div>
       </div>
     </div>
   </div>
 </Layout>
+
+<style>
+  .project-card {
+    background-color: #f5fbff;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow:
+      0 1px 3px 0 rgba(0, 0, 0, 0.1),
+      0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    transition:
+      background-color 0.5s ease,
+      box-shadow 0.5s ease;
+  }
+
+  .project-card:hover {
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  html.dark .project-card {
+    background-color: #1f2937;
+  }
+</style>

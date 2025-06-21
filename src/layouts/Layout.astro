@@ -23,29 +23,27 @@ const { title, description = "Personal website" } = Astro.props;
     <title>{title}</title>
   </head>
   <body
-    class="min-h-screen bg-slate-200 dark:bg-gray-900 transition-colors duration-200"
+    class="min-h-screen bg-slate-200 dark:bg-gray-900 transition-colors duration-500"
   >
-    <header
-      class="bg-slate-100 dark:bg-gray-800 shadow-sm transition-colors duration-200"
-    >
+    <header class="header-theme">
       <nav class="container mx-auto px-4 py-4">
         <div class="flex justify-between items-center">
           <a
             href="/"
-            class="text-xl font-bold text-slate-400 dark:text-white hover:text-slate-300 dark:hover:text-gray-300 transition-colors duration-200"
+            class="text-xl font-bold text-slate-600 dark:text-gray-100 hover:text-slate-700 dark:hover:text-white transition-colors duration-500"
           >
             Linh Nguyen
           </a>
           <div class="flex items-center space-x-12">
             <a
               href="/projects"
-              class="text-slate-400 dark:text-gray-300 hover:text-slate-500 dark:hover:text-white transition-colors duration-200"
+              class="text-slate-600 dark:text-gray-100 hover:text-slate-700 dark:hover:text-white transition-colors duration-500"
             >
               Projects
             </a>
             <a
               href="/journals"
-              class="text-slate-400 dark:text-gray-300 hover:text-slate-500 dark:hover:text-white transition-colors duration-200"
+              class="text-slate-600 dark:text-gray-100 hover:text-slate-700 dark:hover:text-white transition-colors duration-500"
             >
               Journals
             </a>
@@ -93,6 +91,25 @@ const { title, description = "Personal website" } = Astro.props;
       }
     </script>
     <style>
+      .header-theme {
+        background-color: #5082b7;
+        transition: background-color 0.5s ease;
+      }
+
+      html.dark .header-theme {
+        background-color: #11233e;
+      }
+
+      .header-theme a,
+      .header-theme span {
+        color: white !important;
+        transition: color 0.5s ease;
+      }
+
+      .header-theme a:hover {
+        color: #e2e8f0 !important;
+      }
+
       .theme-toggle-btn {
         background: rgba(255, 255, 255, 0.7);
         border: none;
