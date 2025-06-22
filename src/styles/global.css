@@ -98,3 +98,17 @@ a:hover::after {
 :global(.dark) a:hover {
   color: #f8fafc;
 }
+
+/* Blockquote styles */
+blockquote {
+  border-left: 4px solid #ccc;
+  padding-left: 1rem;
+  margin-left: 1rem;
+  font-style: italic;
+  color: #666;
+}
+
+html.dark blockquote {
+  border-left-color: #555;
+  color: #aaa;
+}
