@@ -131,3 +131,7 @@ html.dark blockquote {
   list-style-type: disc;
   padding-left: 3.5rem;
 }
+
+.no-underline::after {
+  display: none !important;
+}
