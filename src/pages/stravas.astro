@@ -1,159 +1,95 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const memes = [
+  { t: `<a href="https://strava.app.link/dkyVKts6BTb">Airport Walk</a>`, d: "walked from SF to SFO for a flight" },
+  { t: `<a href="https://strava.app.link/MBQouYb6BTb">Canoe to Canada</a>`, d: "spontaneous canoe from Minnesota to Canada" },
+  { t: `<a href="https://strava.app.link/fkAXu8n6BTb">Swim to Mexico</a>`, d: "spontaneous swim from Texas to Mexico" },
+  { t: `<a href="https://strava.app.link/Nik0iL1kHTb">Track century</a>`, d: "100 miles of biking around a track" },
+  { t: `<a href="https://strava.app.link/hBIufsx6BTb">(2nd) Minnesota State Fair</a>`, d: `trialed <a href="https://www.reddit.com/r/gainit/comments/kug8ma/the_gallon_of_milk_a_day_gomad_doing_it_right/">GOMAD</a> lite by eating/drinking nothing but milk for a day from the $2 all-you-can-drink milk stand` },
+  { t: `<a href="https://strava.app.link/dUyAyNW6BTb">Patagonia "backpacking"</a>`, d: "everything I needed for 4 days in a 10 L backpack" },
+  { t: `<a href="https://strava.app.link/1GhLNR06BTb">Self-transcendence 1 mile</a>`, d: `visited the <a href="https://3100.srichinmoyraces.org/">world's longest footrace</a>` },
+  { t: `<a href="https://strava.app.link/ZPSNof46BTb">Bike to Indiana</a>`, d: "touched the tip" },
+  { t: `<a href="https://strava.app.link/4gLXTL76BTb">Daywheels</a>`, d: "relay-style ride to every bike share station in SF" },
+];
+
+const art = [
+  { t: `<a href="https://strava.app.link/TSXnmUi7BTb">Snail</a>`, d: "designed by me" },
+  { t: `<a href="https://strava.app.link/X9OL3ol7BTb">Space-filling curve</a>`, d: "designed by Star" },
+  { t: `<a href="https://strava.app.link/bVsyq2m7BTb">Bernalosaurus</a>`, d: "designed by Tally" },
+  { t: `<a href="https://strava.app.link/TZI3qMq7BTb">🎶</a>`, d: "designed by Courtney" },
+  { t: `<a href="https://strava.app.link/7z9yWss7BTb">Pi</a>`, d: "designed by Joanne" },
+  { t: `<a href="https://strava.app.link/BsOX9GNLi0b">Mermaid</a>`, d: "designed by Tally" },
+  { t: `<a href="https://strava.app.link/EgwQmrKLi0b">Exa</a>`, d: "designed by me" },
+];
+
+const excursions = [
+  { t: `<a href="https://strava.app.link/TsTq3lE7BTb">Tour de Bay</a>`, d: "bike ride around the SF Bay, first century" },
+  { t: `<a href="https://strava.app.link/gJTqiQG7BTb">Lost Coast</a>`, d: "I like long walks on the beach" },
+  { t: `<a href="https://strava.app.link/BvNriMJ7BTb">Roys Peak sunrise hike</a>`, d: "a race against the sun" },
+  { t: `<a href="https://strava.app.link/eHOPKzS8BTb">Cave Stream</a>`, d: "a spontaneous half hike/half swim in New Zealand" },
+  { t: `<a href="https://strava.app.link/hQUOx7U8BTb">Sulphur Creek</a>`, d: "yet another half hike/half swim in a Utah slot canyoneering route" },
+  { t: `<a href="https://strava.app.link/6IcvziX8BTb">Isle Royale</a>`, d: "hiked most of this with a ping pong ball-sized blister on my foot from a poison ivy sitch" },
+  { t: `<a href="https://strava.app.link/XRictyZ8BTb">Wind River Range</a>`, d: "hiked most of this on a 1.5x swollen leg from yet another poison ivy sitch" },
+  { t: `<a href="https://strava.app.link/RdkP5g18BTb">Whitney day hike</a>`, d: "sleep-deprived hike with the COVID hiking pod" },
+  { t: `<a href="https://strava.app.link/S3gGwR28BTb">Petra</a>`, d: "navigated my most logistically complex border crossing to date (traveling with an Israeli into Jordan during COVID) for this hike" },
+  { t: `<a href="https://strava.app.link/XPeWfs48BTb">Enchantments</a>`, d: "everybody loves alpine lakes" },
+  { t: `<a href="https://strava.app.link/RMpYGo68BTb">Four Lakes</a>`, d: "California's Enchantments, hit the spot right after quitting a job" },
+  { t: `<a href="https://strava.app.link/Kv7e2Z88BTb">Boundary Waters canoe camping</a>`, d: "playing drunken pirates" },
+  { t: `<a href="https://strava.app.link/nXk3A8c9BTb">Shimanami</a> <a href="https://strava.app.link/eYExfqe9BTb">Kaido</a>`, d: "delightful DIY bike tour of Japanese islands near Hiroshima" },
+  { t: `<a href="https://strava.app.link/MXvPGoh9BTb">RAGBRAI</a>`, d: "first real bike ride, spontaneously flew to Iowa to join 1 day of RAGBRAI 2022" },
+  { t: `<a href="https://strava.app.link/LW682vj9BTb">Christmas at Brighton</a>`, d: "skiing in a sea of Santas" },
+  { t: `<a href="https://strava.app.link/2K6lhFhrUTb">Tahoe loop</a>`, d: "bike ride around Lake Tahoe with AMBBR" },
+];
+
+const sections = [
+  { intro: "Memes:", items: memes },
+  { intro: "Spicing up easy run days with Strava art:", items: art },
+  { intro: "Other memorable excursions (a super incomplete list):", items: excursions },
+];
 ---
 
 <Layout title="Linh Nguyen">
-  <div class="max-w-4xl mx-auto pt-8">
-    <h1 class="text-4xl font-bold mb-8 text-gray-900 dark:text-white">
-      Personal Catalog of Memorable Strava Activities
-    </h1>
-    <p class="text-lg mb-8 text-gray-700 dark:text-gray-300">Memes:</p>
-    <ul class="text-gray-700 dark:text-gray-300 mb-12 pl-6">
-      <li>
-        <a href="https://strava.app.link/dkyVKts6BTb">Airport Walk</a> - walked to
-        from SF to SFO for a flight
-      </li>
-      <li>
-        <a href="https://strava.app.link/MBQouYb6BTb">Canoe to Canada</a> - spontaneous
-        canoe from Minnesota to Canada
-      </li>
-      <li>
-        <a href="https://strava.app.link/fkAXu8n6BTb">Swim to Mexico</a> - spontaneous
-        swim from Texas to Mexico
-      </li>
-      <li>
-        <a href="https://strava.app.link/Nik0iL1kHTb">Track century</a> - 100 miles
-        of biking around a track
-      </li>
-      <li>
-        <a href="https://strava.app.link/hBIufsx6BTb"
-          >(2nd) Minnesota State Fair</a
-        > - trialed <a
-          href="https://www.reddit.com/r/gainit/comments/kug8ma/the_gallon_of_milk_a_day_gomad_doing_it_right/"
-          >GOMAD</a
-        > lite by eating/drinking nothing but milk for a day from the $2 all-you-can-drink
-        milk stand
-      </li>
-      <li>
-        <a href="https://strava.app.link/dUyAyNW6BTb">Patagonia "backpacking"</a
-        > - everything I needed for 4 days in a 10 L backpack
-      </li>
-      <li>
-        <a href="https://strava.app.link/1GhLNR06BTb"
-          >Self-transcendence 1 mile</a
-        > - visited the <a href="https://3100.srichinmoyraces.org/"
-          >world's longest footrace</a
-        >
-      </li>
-      <li>
-        <a href="https://strava.app.link/ZPSNof46BTb">Bike to Indiana</a> - touched
-        the tip
-      </li>
-      <li>
-        <a href="https://strava.app.link/4gLXTL76BTb">Daywheels</a> - relay-style
-        ride to every bike share station in SF
-      </li>
-    </ul>
-    <p class="text-lg mb-8 text-gray-700 dark:text-gray-300">
-      Spicing up easy run days with Strava art:
-    </p>
-    <ul class="text-gray-700 dark:text-gray-300 mb-12 pl-6">
-      <li>
-        <a href="https://strava.app.link/TSXnmUi7BTb">Snail</a> - designed by me
-      </li>
-      <li>
-        <a href="https://strava.app.link/X9OL3ol7BTb">Space-filling curve</a> - designed
-        by Star
-      </li>
-      <li>
-        <a href="https://strava.app.link/bVsyq2m7BTb">Bernalosaurus</a> - designed
-        by Tally
-      </li>
-      <li>
-        <a href="https://strava.app.link/TZI3qMq7BTb">🎶</a> - designed by Courtney
-      </li>
-      <li>
-        <a href="https://strava.app.link/7z9yWss7BTb">Pi</a> - designed by Joanne
-      </li>
-      <li>
-        <a href="https://strava.app.link/BsOX9GNLi0b">Mermaid</a> - designed by Tally
-      </li>
-      <li>
-        <a href="https://strava.app.link/EgwQmrKLi0b">Exa</a> - designed by me
-      </li>
-    </ul>
-    <p class="text-lg mb-8 text-gray-700 dark:text-gray-300">
-      Other memorable excursions (a super incomplete list):
-    </p>
-    <ul class="text-gray-700 dark:text-gray-300 pl-6 mb-12">
-      <li>
-        <a href="https://strava.app.link/TsTq3lE7BTb">Tour de Bay</a> - bike ride
-        around the SF Bay, first century
-      </li>
-      <li>
-        <a href="https://strava.app.link/gJTqiQG7BTb">Lost Coast</a> - I like long
-        walks on the beach
-      </li>
-      <li>
-        <a href="https://strava.app.link/BvNriMJ7BTb">Roys Peak sunrise hike</a>
-        - a race against the sun
-      </li>
-      <li>
-        <a href="https://strava.app.link/eHOPKzS8BTb">Cave Stream</a> - a spontaneous
-        half hike/half swim in New Zealand
-      </li>
-      <li>
-        <a href="https://strava.app.link/hQUOx7U8BTb">Sulphur Creek</a> - yet another
-        half hike/half swim in a Utah slot canyoneering route
-      </li>
-      <li>
-        <a href="https://strava.app.link/6IcvziX8BTb">Isle Royale</a> - hiked most
-        of this with a ping pong ball-sized blister on my foot from a poison ivy
-        sitch
-      </li>
-      <li>
-        <a href="https://strava.app.link/XRictyZ8BTb">Wind River Range</a> - hiked
-        most of this on a 1.5x swollen leg from yet another poison ivy sitch
-      </li>
-      <li>
-        <a href="https://strava.app.link/RdkP5g18BTb">Whitney day hike</a> - sleep-deprived
-        hike with the COVID hiking pod
-      </li>
-      <li>
-        <a href="https://strava.app.link/S3gGwR28BTb">Petra</a> - navigated my most
-        logistically complex border crossing to date (traveling with an Israeli into
-        Jordan during COVID) for this hike
-      </li>
-      <li>
-        <a href="https://strava.app.link/XPeWfs48BTb">Enchantments</a> - everybody
-        loves alpine lakes
-      </li>
-      <li>
-        <a href="https://strava.app.link/RMpYGo68BTb">Four Lakes</a> - California's
-        Enchantments, hit the spot right after quitting a job
-      </li>
-      <li>
-        <a href="https://strava.app.link/Kv7e2Z88BTb"
-          >Boundary Waters canoe camping</a
-        > - playing drunken pirates
-      </li>
-      <li>
-        <a href="https://strava.app.link/nXk3A8c9BTb">Shimanami</a>
-        <a href="https://strava.app.link/eYExfqe9BTb">Kaido</a> - delightful DIY
-        bike tour of Japanese islands near Hiroshima
-      </li>
-      <li>
-        <a href="https://strava.app.link/MXvPGoh9BTb">RAGBRAI</a> - first real bike
-        ride, spontaneously flew to Iowa to join 1 day of RAGBRAI 2022
-      </li>
-      <li>
-        <a href="https://strava.app.link/LW682vj9BTb">Christmas at Brighton</a> -
-        skiing in a sea of Santas
-      </li>
-      <li>
-        <a href="https://strava.app.link/2K6lhFhrUTb">Tahoe loop</a> - bike ride
-        around Lake Tahoe with AMBBR
-      </li>
-    </ul>
+  <div class="pt-10">
+    <h1 class="mb-8">Personal Catalog of Memorable Strava Activities</h1>
+
+    {
+      sections.map((s) => (
+        <section class="mb-10">
+          <p class="intro">{s.intro}</p>
+          <ul class="strava-list">
+            {s.items.map((item) => (
+              <li class="strava-item">
+                <span class="strava-title" set:html={item.t} />
+                <span class="strava-desc"> - <Fragment set:html={item.d} /></span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    }
   </div>
+
+  <style>
+    .intro {
+      font-size: 1.125rem;
+      margin-bottom: 0.75rem;
+    }
+    .strava-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .strava-item {
+      padding: 0.55rem 0;
+      border-bottom: 1px solid var(--border);
+      line-height: 1.6;
+    }
+    .strava-title {
+      font-weight: 500;
+    }
+    .strava-desc {
+      color: var(--text-muted);
+    }
+  </style>
 </Layout>

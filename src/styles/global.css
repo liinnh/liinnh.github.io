@@ -1,119 +1,234 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 
+/* ---------------------------------------------------------------------------
+   Palette — a refined dusk. Light mode is warm "sunset paper"; dark mode is
+   a calm night. Both pull from the colors in the hero so the whole site reads
+   as one continuous scene rather than a stock component.
+--------------------------------------------------------------------------- */
 :root {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  color-scheme: light dark;
-}
+  --font-sans: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Schibsted Grotesk", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
-html {
-  color-scheme: light dark;
-}
+  /* Light — sunset paper */
+  --bg: #f7f0ea;
+  --bg-soft: #fbf6f1;
+  --surface: #fffdfb;
+  --surface-2: #f4ebe3;
+  --border: #e8dccf;
+  --text: #4a414b;
+  --text-strong: #2c2530;
+  --text-muted: #93869a;
+  --accent: #c75c40;
+  --accent-soft: #e0826a;
+  --accent-hover: #a8472f;
 
-html.light {
   color-scheme: light;
 }
 
 html.dark {
+  /* Dark — calm night */
+  --bg: #0e1220;
+  --bg-soft: #131829;
+  --surface: #181e30;
+  --surface-2: #1f2740;
+  --border: #2a3350;
+  --text: #d7d4e2;
+  --text-strong: #f3f1f9;
+  --text-muted: #9690a8;
+  --accent: #e89a72;
+  --accent-soft: #eaa985;
+  --accent-hover: #f2b896;
+
   color-scheme: dark;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #e2e8f0;
-  color: #475569;
-  transition: background-color 0.5s ease, color 0.5s ease;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  transition: background-color 0.6s ease, color 0.6s ease;
 }
 
-html.dark body {
-  background-color: #111827;
-  color: #f3f4f6;
-}
-
-/* Base text colors */
-p,
+/* ---------------------------------------------------------------------------
+   Typography
+--------------------------------------------------------------------------- */
 h1,
 h2,
 h3,
-h4,
-h5,
-h6,
-span,
-div,
+h4 {
+  font-family: var(--font-display);
+  color: var(--text-strong);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  transition: color 0.6s ease;
+}
+
+h1 {
+  font-size: clamp(2.25rem, 5vw, 3rem);
+}
+
+p,
 li {
-  color: #475569;
-  transition: color 0.5s ease;
+  color: var(--text);
+  transition: color 0.6s ease;
 }
 
-html.dark p,
-html.dark h1,
-html.dark h2,
-html.dark h3,
-html.dark h4,
-html.dark h5,
-html.dark h6,
-html.dark span,
-html.dark div,
-html.dark li {
-  color: #f3f4f6;
+strong {
+  color: var(--text-strong);
+  font-weight: 600;
 }
 
-/* Link styles */
+/* ---------------------------------------------------------------------------
+   Links — warm sunset accent with a soft underline that fills on hover
+--------------------------------------------------------------------------- */
 a {
-  color: #808ea3;
+  color: var(--accent);
   text-decoration: none;
-  position: relative;
-  transition: color 0.5s ease;
-}
-
-a::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 1px;
-  bottom: -2px;
-  left: 0;
-  background-color: currentColor;
-  opacity: 0.5;
-  transition: opacity 0.5s ease;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 100% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  padding-bottom: 1px;
+  transition: color 0.3s ease, background-size 0.3s ease, opacity 0.3s ease;
 }
 
 a:hover {
-  color: #475569;
+  color: var(--accent-hover);
 }
 
-a:hover::after {
-  opacity: 1;
+/* Decorative / structural links opt out of the underline */
+.no-underline,
+a.no-underline {
+  background-image: none !important;
+  padding-bottom: 0;
 }
 
-/* Dark mode link styles */
-:global(.dark) a {
-  color: #e2e8f0;
+/* ---------------------------------------------------------------------------
+   Surfaces
+--------------------------------------------------------------------------- */
+.card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1.5rem 1.75rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    border-color 0.3s ease, background-color 0.6s ease;
 }
 
-:global(.dark) a:hover {
-  color: #f8fafc;
+.card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-soft);
+  box-shadow: 0 12px 28px -16px rgba(199, 92, 64, 0.45);
 }
 
-/* Blockquote styles */
-blockquote {
-  border-left: 4px solid #ccc;
-  padding-left: 1rem;
-  margin-left: 1rem;
+html.dark .card:hover {
+  box-shadow: 0 14px 30px -16px rgba(0, 0, 0, 0.6);
+}
+
+/* Small chip-style links (socials, etc.) */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  background-color: var(--surface);
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 500;
+  background-image: none;
+}
+
+.chip:hover {
+  color: var(--accent-hover);
+  border-color: var(--accent-soft);
+  background-color: var(--bg-soft);
+}
+
+/* Back-link used at the top of journal entries */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  background-image: none;
+}
+
+.back-link:hover {
+  color: var(--accent-hover);
+}
+
+/* ---------------------------------------------------------------------------
+   Article / prose — gives every journal entry comfortable reading defaults
+--------------------------------------------------------------------------- */
+.entry h1 {
+  margin-bottom: 0.25rem;
+}
+
+.entry-date {
+  color: var(--text-muted);
   font-style: italic;
-  color: #666;
 }
 
-html.dark blockquote {
-  border-left-color: #555;
-  color: #aaa;
+.prose {
+  font-size: 1.075rem;
+  line-height: 1.8;
 }
 
-/* Custom bullets for nested lists */
+.prose > * + * {
+  margin-top: 1.25rem;
+}
+
+.prose a {
+  font-weight: 500;
+}
+
+.prose h2 {
+  font-size: 1.6rem;
+  margin-top: 2.5rem;
+}
+
+.prose h3 {
+  font-size: 1.3rem;
+  margin-top: 2rem;
+}
+
+.prose ul {
+  list-style: disc;
+  padding-left: 1.4rem;
+}
+
+.prose ul li::marker {
+  color: var(--accent-soft);
+}
+
+.prose li + li {
+  margin-top: 0.4rem;
+}
+
+/* Blockquotes */
+blockquote {
+  border-left: 3px solid var(--accent-soft);
+  padding-left: 1.1rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+/* Custom bullets for nested lists (kept for entries that use them) */
 .custom-bullets,
 .custom-bullets ul {
   list-style-type: disc;
@@ -132,6 +247,7 @@ html.dark blockquote {
   padding-left: 3.5rem;
 }
 
-.no-underline::after {
-  display: none !important;
+::selection {
+  background-color: var(--accent-soft);
+  color: #fff;
 }

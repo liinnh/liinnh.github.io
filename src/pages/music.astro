@@ -1,66 +1,61 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const soloPiano = [
+  {
+    title: "Stella by Starlight",
+    suffix: " arrangement:",
+    score:
+      "https://www.dropbox.com/scl/fi/wabugv1lix8jhn1zo57dv/Stella-by-Starlight-Piano.pdf?rlkey=7dog0yhziyjvqndytno8ai51s&st=cr9dd3na&dl=0",
+    audio:
+      "https://www.dropbox.com/scl/fi/q9kne5ysti08d0subebsu/stella_by_starlight.mp3?rlkey=skydvc1qh2f6h8iuj8opw6tlq&st=1hou3n6b&dl=0",
+  },
+  {
+    title: "All the Things You Are",
+    suffix: " arrangement:",
+    score:
+      "https://www.dropbox.com/scl/fi/5kcpcq3m8f2cu1ho44nhk/All-the-Things-You-Are-Full-Score.pdf?rlkey=ysend52i1r8x1cmgnyx9q642d&st=4o2uvx9l&dl=0",
+    audio:
+      "https://www.dropbox.com/scl/fi/qqmgo512qoq0h3vwjf70d/all_the_things_you_are.mp3?rlkey=cca2oof05f44p7s3c1mib6oor&st=mnkmwlkl&dl=0",
+  },
+];
 ---
 
 <Layout title="Linh Nguyen">
-  <div class="max-w-4xl mx-auto pt-8">
-    <h1 class="text-4xl font-bold mb-8 text-gray-900 dark:text-white">Music</h1>
-    <h2 class="text-2xl font-bold mt-8 mb-4 text-gray-900 dark:text-white">
-      solo piano
-    </h2>
+  <div class="pt-10">
+    <h1 class="mb-8">Music</h1>
 
-    <ul>
-      <li>
-        <i>Stella by Starlight</i> arrangement:
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.dropbox.com/scl/fi/wabugv1lix8jhn1zo57dv/Stella-by-Starlight-Piano.pdf?rlkey=7dog0yhziyjvqndytno8ai51s&st=cr9dd3na&dl=0"
-          >🎼</a
-        >
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.dropbox.com/scl/fi/q9kne5ysti08d0subebsu/stella_by_starlight.mp3?rlkey=skydvc1qh2f6h8iuj8opw6tlq&st=1hou3n6b&dl=0"
-          >🔊</a
-        >
-      </li>
-      <li>
-        <i>All the Things You Are</i> arrangement:
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.dropbox.com/scl/fi/5kcpcq3m8f2cu1ho44nhk/All-the-Things-You-Are-Full-Score.pdf?rlkey=ysend52i1r8x1cmgnyx9q642d&st=4o2uvx9l&dl=0"
-          >🎼</a
-        >
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.dropbox.com/scl/fi/qqmgo512qoq0h3vwjf70d/all_the_things_you_are.mp3?rlkey=cca2oof05f44p7s3c1mib6oor&st=mnkmwlkl&dl=0"
-          >🔊</a
-        >
-      </li>
-      <li>
+    <h2 class="section-head">solo piano</h2>
+    <ul class="track-list">
+      {
+        soloPiano.map((t) => (
+          <li class="track">
+            <i>{t.title}</i>{t.suffix}
+            <a href={t.score} target="_blank" rel="noopener noreferrer" class="emoji-link">🎼</a>
+            <a href={t.audio} target="_blank" rel="noopener noreferrer" class="emoji-link">🔊</a>
+          </li>
+        ))
+      }
+      <li class="track">
         21M.302 composition:
         <a
           target="_blank"
           rel="noopener noreferrer"
           href="https://www.dropbox.com/scl/fi/1uzbhxdqoih4x5ztb2cy3/21m302_finalproject.pdf?rlkey=rfhmf4afjebdblzqwvywm6dpe&st=gvj3lp13&dl=0"
-          >🎼</a
+          class="emoji-link">🎼</a
         >
         <a
           target="_blank"
           rel="noopener noreferrer"
           href="https://www.dropbox.com/scl/fi/bq25nndwqnjtnjzgid5pp/21m302final.wav?rlkey=lj60hhubg13bdnc3y91rp502b&st=4arzeskc&dl=0"
-          >🔊</a
+          class="emoji-link">🔊</a
         >
       </li>
     </ul>
-    <h2 class="text-2xl font-bold mt-8 mb-4 text-gray-900 dark:text-white">
-      multi-instrumental
-    </h2>
-    <ul>
-      <li>
+
+    <h2 class="section-head">multi-instrumental</h2>
+    <ul class="track-list">
+      <li class="track">
         <a
           target="_blank"
           rel="noopener noreferrer"
@@ -68,35 +63,57 @@ import Layout from "../layouts/Layout.astro";
           >Strasbourg St. Denis arrangement</a
         >
       </li>
-      <li>
+      <li class="track">
         <a
           target="_blank"
           rel="noopener noreferrer"
-          href="https://www.instagram.com/p/Br0fJiWHn8P/"
-          >Christmas arrangement</a
+          href="https://www.instagram.com/p/Br0fJiWHn8P/">Christmas arrangement</a
         >
       </li>
-      <li>
+      <li class="track">
         <i>On The Sunny Side Of The Street</i> for SATB sax quartet + rhythm section:
         <a
           target="_blank"
           rel="noopener noreferrer"
           href="https://www.dropbox.com/scl/fi/hkaayyr6z4b6bsoe5iinf/On_the_Sunny_Side_of_the_Street-Score_and_Parts.pdf?rlkey=55dvctnffq9mx8sl0ycenh61a&st=zf9aouo6&dl=0"
-          >🎼</a
+          class="emoji-link">🎼</a
         >
         <a
           target="_blank"
           rel="noopener noreferrer"
           href="https://www.dropbox.com/scl/fi/e45jewjwchxnal6gf9ix9/21m340final.wav?rlkey=cpodgck4x5phslue8qac7u5ih&st=eqw3y4bf&dl=0"
-          >🔊</a
+          class="emoji-link">🔊</a
         >
       </li>
     </ul>
-    <h2 class="text-2xl font-bold mt-8 mb-4 text-gray-900 dark:text-white">
-      misc
-    </h2>
-    <p>
-      <a href="/journal/on-guitar">Thoughts on guitar</a>
-    </p>
+
+    <h2 class="section-head">misc</h2>
+    <p><a href="/journal/on-guitar">Thoughts on guitar</a></p>
   </div>
+
+  <style>
+    .section-head {
+      font-size: 1.5rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .track-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .track {
+      padding: 0.7rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 1.075rem;
+    }
+    .emoji-link {
+      background-image: none;
+      padding-bottom: 0;
+      font-size: 1.15rem;
+      margin-left: 0.15rem;
+    }
+  </style>
 </Layout>

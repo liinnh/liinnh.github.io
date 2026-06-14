@@ -1,60 +1,97 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const entries = [
+  {
+    href: "/journal/music-discovery-engines",
+    title: "Music Discovery Engines",
+    date: "September 1, 2022",
+  },
+  {
+    href: "/journal/language-myths",
+    title: "Language Myths",
+    date: "February 20, 2020",
+  },
+  { href: "/journal/dfw-quotes", title: "DFW Quotes", date: "December 27, 2018" },
+  {
+    href: "/journal/middlemarch",
+    title: "Middlemarch",
+    date: "September 16, 2016",
+  },
+  {
+    href: "/journal/brave-new-world",
+    title: "Brave New World",
+    date: "May 2, 2012",
+  },
+];
 ---
 
 <Layout title="Linh Nguyen">
-  <div class="max-w-4xl mx-auto pt-8 pb-16">
-    <h1 class="text-4xl font-bold mb-8 text-gray-900 dark:text-white">
-      Journals
-    </h1>
-    <p class="text-lg mb-8 text-gray-700 dark:text-gray-300">
-      I've kept a fairly consistent biweekly journaling practice since I was 15.
-      Occasionally, I share one-off entries and favorite quotes with friends.
-    </p>
-    <p class="text-lg mb-8 text-gray-700 dark:text-gray-300">
-      Compiling a small subset of them here for easy sharing.
-    </p>
-    <div class="space-y-8">
-      <div>
-        <a
-          href="/journal/music-discovery-engines"
-          class="text-2xl font-bold text-gray-900 dark:text-white hover:underline"
-          >Music Discovery Engines</a
-        >
-        <p class="text-gray-600 dark:text-gray-400 mt-1">September 1, 2022</p>
-      </div>
-      <div>
-        <a
-          href="/journal/language-myths"
-          class="text-2xl font-bold text-gray-900 dark:text-white hover:underline"
-          >Language Myths</a
-        >
-        <p class="text-gray-600 dark:text-gray-400 mt-1">February 20, 2020</p>
-      </div>
-      <div>
-        <a
-          href="/journal/dfw-quotes"
-          class="text-2xl font-bold text-gray-900 dark:text-white hover:underline"
-          >DFW Quotes</a
-        >
-        <p class="text-gray-600 dark:text-gray-400 mt-1">December 27, 2018</p>
-      </div>
-      <div>
-        <a
-          href="/journal/middlemarch"
-          class="text-2xl font-bold text-gray-900 dark:text-white hover:underline"
-          >Middlemarch</a
-        >
-        <p class="text-gray-600 dark:text-gray-400 mt-1">September 16, 2016</p>
-      </div>
-      <div>
-        <a
-          href="/journal/brave-new-world"
-          class="text-2xl font-bold text-gray-900 dark:text-white hover:underline"
-          >Brave New World</a
-        >
-        <p class="text-gray-600 dark:text-gray-400 mt-1">May 2, 2012</p>
-      </div>
+  <div class="pt-10 pb-4">
+    <h1 class="mb-4">Journals</h1>
+    <div class="text-lg max-w-2xl space-y-4 mb-10">
+      <p>
+        I've kept a fairly consistent biweekly journaling practice since I was
+        15. Occasionally, I share one-off entries and favorite quotes with
+        friends.
+      </p>
+      <p>Compiling a small subset of them here for easy sharing.</p>
     </div>
+
+    <ul class="entry-list">
+      {
+        entries.map((e) => (
+          <li>
+            <a href={e.href} class="entry-row no-underline">
+              <span class="entry-title">{e.title}</span>
+              <span class="entry-meta">{e.date}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
   </div>
+
+  <style>
+    .entry-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      border-top: 1px solid var(--border);
+    }
+    .entry-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.15rem 0.5rem 1.15rem 0;
+      border-bottom: 1px solid var(--border);
+      color: inherit;
+      transition: padding-left 0.25s ease;
+    }
+    .entry-row:hover {
+      padding-left: 0.5rem;
+    }
+    .entry-title {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--text-strong);
+      transition: color 0.25s ease;
+    }
+    .entry-row:hover .entry-title {
+      color: var(--accent);
+    }
+    .entry-meta {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+    @media (max-width: 480px) {
+      .entry-row {
+        flex-direction: column;
+        gap: 0.2rem;
+      }
+    }
+  </style>
 </Layout>

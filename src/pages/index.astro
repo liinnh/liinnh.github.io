@@ -4,31 +4,30 @@ import NatureArt from "../components/NatureArt.astro";
 ---
 
 <Layout title="Linh Nguyen">
-  <div class="max-w-4xl mx-auto">
-    <NatureArt />
+  <NatureArt>
+    <h1 class="hero-name">hi! i'm linh</h1>
+  </NatureArt>
 
-    <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-8">
-      hi! i'm linh
-    </h1>
-    <p class="text-m text-gray-700 dark:text-gray-300 mb-8">
-      I'm based in San Francisco, CA and I love:
-      <ul class="text-m text-gray-700 dark:text-gray-300 mb-8">
-        <li>- data</li>
+  <div class="max-w-2xl text-lg leading-relaxed space-y-6">
+    <div>
+      <p class="mb-3">I'm based in San Francisco, CA and I love:</p>
+      <ul class="love-list">
+        <li>data</li>
         <li>
-          - <a href="https://www.strava.com/athletes/44108651" target="_blank"
+          <a href="https://www.strava.com/athletes/44108651" target="_blank"
             >going outside</a
           >
         </li>
         <li>
-          - <a href="https://www.last.fm/user/nguyen-linh" target="_blank"
+          <a href="https://www.last.fm/user/nguyen-linh" target="_blank"
             >listening to</a
           > & <a href="/music">arranging music</a>
         </li>
       </ul>
-    </p>
+    </div>
 
-    <p class="text-m text-gray-700 dark:text-gray-300 mb-8">
-      Currently, I'm a data engineer at <a
+    <p>
+      Currently, I'm a data scientist at <a
         href="https://www.exa.ai"
         target="_blank">Exa</a
       >. (We're hiring!) Previously, I built credit underwriting models at <a
@@ -37,7 +36,7 @@ import NatureArt from "../components/NatureArt.astro";
       >.
     </p>
 
-    <p class="text-m text-gray-700 dark:text-gray-300 mb-8">
+    <p>
       In a past life, I studied at MIT where I majored in Chemical Engineering
       and minored in Music. I also played some <a
         href="https://poker.mit.edu/"
@@ -48,4 +47,31 @@ import NatureArt from "../components/NatureArt.astro";
       > there.
     </p>
   </div>
+
+  <style>
+    .hero-name {
+      color: #fff;
+      font-size: clamp(2.4rem, 6vw, 3.4rem);
+      margin: 0;
+      text-shadow: 0 2px 16px rgba(0, 0, 0, 0.4);
+    }
+    .love-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .love-list li {
+      position: relative;
+      padding-left: 1.4rem;
+    }
+    .love-list li + li {
+      margin-top: 0.35rem;
+    }
+    .love-list li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--accent-soft);
+    }
+  </style>
 </Layout>
