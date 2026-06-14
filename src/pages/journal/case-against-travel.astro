@@ -1,17 +1,8 @@
 ---
-import Layout from "../../layouts/Layout.astro";
+import JournalEntry from "../../layouts/JournalEntry.astro";
 ---
 
-<Layout title="Linh Nguyen">
-  <div class="max-w-4xl mx-auto pt-8 pb-16">
-    <a href="/journals" class="back-link"
-      >&larr; Back to Journals</a
-    >
-    <h1 class="text-4xl font-bold mt-8 mb-4 text-gray-900 dark:text-white">
-      The Case Against Travel
-    </h1>
-    <p class="text-gray-600 dark:text-gray-400 mb-8 italic">March 13, 2024</p>
-    <div class="prose dark:prose-invert max-w-none space-y-4">
+<JournalEntry title="The Case Against Travel" date="March 13, 2024">
       <p class="text-lg">
         Read this provocative piece today: <a
           href="https://www.newyorker.com/culture/the-weekend-essay/the-case-against-travel"
@@ -130,6 +121,4 @@ import Layout from "../../layouts/Layout.astro";
         things I know (music? nature? sports?) so I can more authentically
         appreciate my experiences and explore with more intention.
       </p>
-    </div>
-  </div>
-</Layout>
+</JournalEntry>

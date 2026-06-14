@@ -1,19 +1,8 @@
 ---
-import Layout from "../../layouts/Layout.astro";
+import JournalEntry from "../../layouts/JournalEntry.astro";
 ---
 
-<Layout title="Linh Nguyen">
-  <div class="max-w-4xl mx-auto pt-8 pb-16">
-    <a href="/journals" class="back-link"
-      >&larr; Back to Journals</a
-    >
-    <h1 class="text-4xl font-bold mt-8 mb-4 text-gray-900 dark:text-white">
-      Language Myths
-    </h1>
-    <p class="text-gray-600 dark:text-gray-400 mb-8 italic">
-      February 20, 2020
-    </p>
-    <div class="prose dark:prose-invert max-w-none space-y-4">
+<JournalEntry title="Language Myths" date="February 20, 2020">
       <p class="text-lg">
         Recently I've been reading a collection of sociolinguistics essays
         called <a
@@ -101,6 +90,4 @@ import Layout from "../../layouts/Layout.astro";
         <li>the people we find attractive</li>
         <li>the visual arts & architecture we find beautiful</li>
       </ul>
-    </div>
-  </div>
-</Layout>
+</JournalEntry>

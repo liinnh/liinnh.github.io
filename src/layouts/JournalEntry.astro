@@ -1,0 +1,32 @@
+---
+import Layout from "./Layout.astro";
+
+interface Props {
+  title: string;
+  date: string;
+  /** Wrap the content in the `.prose` container. Set false for entries that
+      manage their own layout (e.g. custom nested lists). */
+  prose?: boolean;
+}
+
+const { title, date, prose = true } = Astro.props;
+---
+
+<Layout title="Linh Nguyen">
+  <div class="max-w-4xl mx-auto pt-8 pb-16">
+    <a href="/journals" class="back-link">&larr; Back to Journals</a>
+    <h1 class="text-4xl font-bold mt-8 mb-4 text-gray-900 dark:text-white">
+      {title}
+    </h1>
+    <p class="text-gray-600 dark:text-gray-400 mb-8 italic">{date}</p>
+    {
+      prose ? (
+        <div class="prose dark:prose-invert max-w-none space-y-4">
+          <slot />
+        </div>
+      ) : (
+        <slot />
+      )
+    }
+  </div>
+</Layout>

@@ -25,6 +25,13 @@
   --accent-soft: #e0826a;
   --accent-hover: #a8472f;
 
+  /* Links default to the accent; dark mode overrides for legibility */
+  --link: var(--accent);
+  --link-hover: var(--accent-hover);
+
+  /* Bullets / dashes default to the soft accent; dark mode overrides */
+  --marker: var(--accent-soft);
+
   color-scheme: light;
 }
 
@@ -41,6 +48,11 @@ html.dark {
   --accent: #e89a72;
   --accent-soft: #eaa985;
   --accent-hover: #f2b896;
+
+  /* Soft periwinkle so links harmonize with the night sky */
+  --link: #9db4f0;
+  --link-hover: #bccef8;
+  --marker: #9db4f0;
 
   color-scheme: dark;
 }
@@ -93,7 +105,7 @@ strong {
    Links — warm sunset accent with a soft underline that fills on hover
 --------------------------------------------------------------------------- */
 a {
-  color: var(--accent);
+  color: var(--link);
   text-decoration: none;
   background-image: linear-gradient(currentColor, currentColor);
   background-size: 100% 1px;
@@ -104,7 +116,7 @@ a {
 }
 
 a:hover {
-  color: var(--accent-hover);
+  color: var(--link-hover);
 }
 
 /* Decorative / structural links opt out of the underline */
@@ -174,15 +186,6 @@ html.dark .card:hover {
 /* ---------------------------------------------------------------------------
    Article / prose — gives every journal entry comfortable reading defaults
 --------------------------------------------------------------------------- */
-.entry h1 {
-  margin-bottom: 0.25rem;
-}
-
-.entry-date {
-  color: var(--text-muted);
-  font-style: italic;
-}
-
 .prose {
   font-size: 1.075rem;
   line-height: 1.8;
@@ -212,7 +215,7 @@ html.dark .card:hover {
 }
 
 .prose ul li::marker {
-  color: var(--accent-soft);
+  color: var(--marker);
 }
 
 .prose li + li {

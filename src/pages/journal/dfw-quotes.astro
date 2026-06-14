@@ -1,19 +1,8 @@
 ---
-import Layout from "../../layouts/Layout.astro";
+import JournalEntry from "../../layouts/JournalEntry.astro";
 ---
 
-<Layout title="Linh Nguyen">
-  <div class="max-w-4xl mx-auto pt-8 pb-16">
-    <a href="/journals" class="back-link"
-      >&larr; Back to Journals</a
-    >
-    <h1 class="text-4xl font-bold mt-8 mb-4 text-gray-900 dark:text-white">
-      DFW Quotes
-    </h1>
-    <p class="text-gray-600 dark:text-gray-400 mb-8 italic">
-      December 27, 2018
-    </p>
-    <div class="prose dark:prose-invert max-w-none space-y-4">
+<JournalEntry title="DFW Quotes" date="December 27, 2018">
       <p class="text-lg">
         from <a
           href="https://www.goodreads.com/book/show/15823473-david-foster-wallace"
@@ -83,6 +72,4 @@ import Layout from "../../layouts/Layout.astro";
         it — and not because blindness and dumbness are the price of the gift,
         but because they are its essence.”
       </blockquote>
-    </div>
-  </div>
-</Layout>
+</JournalEntry>
